@@ -1,0 +1,159 @@
+{
+	"info": {
+		"name": "filechain",
+		"_postman_id": "38adedb8-875c-91cb-179b-31436e26bb95",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"var token = jsonData.data?jsonData.data.token:jsonData.token;",
+							"tests[\"token found\"] = token;",
+							"if(token){",
+							"    postman.setEnvironmentVariable(\"token\", token);",
+							"}",
+							"",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\":\"{{auth_user}}\",\n  \"password\":\"{{auth_passwd}}\"\n}"
+				},
+				"url": {
+					"raw": "http://{{auth_api_host}}:{{auth_api_port}}/auth/login",
+					"protocol": "http",
+					"host": [
+						"{{auth_api_host}}"
+					],
+					"port": "{{auth_api_port}}",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload file",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"add success\"] = responseCode.code == 200;",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					},
+					{
+						"key": "token",
+						"value": "{{token}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"description": "",
+							"type": "file",
+							"src": "4383920.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/upload/filechain",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"upload",
+						"filechain"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get file meta info by fileHash",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9d780fc5-6856-406b-8448-7bc2ddc8f031",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"jsonData = jsonData.data||jsonData",
+							"tests[\"found\"] = jsonData.used == 4&&jsonData.free == 296",
+							""
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"category\":\"Vehicle\",\n  \"cypher\":\"match (b:Brand)\\n optional match (b)<-[:BelongsTo]-(m:Model)\\n optional match (m)<-[:ModelOf]-(n) return collect (distinct {brand:b,model:m,attr:n})\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/api/filechain/Qmda4meyiHsxzMMNkiethePZqtrNwE8vKGf2bN8uPTU96H",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"filechain",
+						"Qmda4meyiHsxzMMNkiethePZqtrNwE8vKGf2bN8uPTU96H"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

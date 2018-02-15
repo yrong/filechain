@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>demos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/animate.css/3.5.2/animate.min.css">
+    <link href="https://cdn.bootcss.com/bootstrap-fileinput/4.4.5/css/fileinput.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        body {font-family: "FontAwesome"}
+        [data-notify="progressbar"] {
+            margin-bottom: 0px;
+            position: absolute;
+            bottom: 0px;
+            left: 0px;
+            width: 100%;
+            height: 5px;
+        }
+        .top-buffer { margin-top:10px; }
+    </style>
+    <script src="https://cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap-fileinput/4.4.5/themes/fa/theme.js"></script>
+    <script src="https://cdn.bootcss.com/socket.io/2.0.3/socket.io.js"></script>
+    <script src="https://cdn.bootcss.com/mouse0270-bootstrap-notify/3.1.7/bootstrap-notify.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a  href="#filechain" data-toggle="tab">filechain</a>
+        </li>
+    </ul>
+    <div class="tab-content clearfix">
+        <div class="tab-pane active" id="filechain">
+            <div class="row form-group">
+                <div class="col col-md-6">
+                    <input type="file" id="chainfile" name="chainfile" />
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col col-md-4">
+                    <div class="form-group">
+                        <h4><label class="label label-default">FileHash:</label></h4>
+                        <span id="uploaded_fileHash" class="label label-success"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+<script type="text/javascript" src="env.js"></script>
+<script type="text/javascript" src="common.js"></script>
+<script type="text/javascript" src="publish.js"></script>
+</body>
+</html>
