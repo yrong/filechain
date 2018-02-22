@@ -16,9 +16,7 @@ contract SimpleStorage {
 
     function get(string fileHash) view public returns (string,string,uint) {
         FileMeta memory meta = files[fileHash];
-        if(meta.publishTime == 0){
-            revert();
-        }
+        require(meta.publishTime>0);
         return (meta.fileHash,meta.publisher,meta.publishTime);
     }
 }

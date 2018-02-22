@@ -2728,9 +2728,9 @@ koa-convert@^1.2.0:
     co "^4.6.0"
     koa-compose "^3.0.0"
 
-koa-file-upload-all-in-one@1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.npmjs.org/koa-file-upload-all-in-one/-/koa-file-upload-all-in-one-1.0.0-beta.1.tgz#43f5bcc9bf35b24ac477f9806a68a2b9c2c35609"
+koa-file-upload-all-in-one@1.0.0-beta.4:
+  version "1.0.0-beta.4"
+  resolved "https://registry.npmjs.org/koa-file-upload-all-in-one/-/koa-file-upload-all-in-one-1.0.0-beta.4.tgz#8489e682a52f74bb26e71ba0082445b7f0033a84"
   dependencies:
     async-busboy-fork "^0.6.1"
     dateformat "^1.0.12"

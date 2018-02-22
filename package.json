@@ -21,7 +21,7 @@
     "kcors": "^2.1.1",
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.2.0",
-    "koa-file-upload-all-in-one": "1.0.0-beta.1",
+    "koa-file-upload-all-in-one": "1.0.0-beta.4",
     "koa-mount": "^2.0.0",
     "koa-router": "^7.0.1",
     "koa-socket": "^4.4.0",
