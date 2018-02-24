@@ -20,7 +20,7 @@ Install [ipfs](https://ipfs.io)
 In a new command shell run
 
 ```
-sh ganache-1.1.0-beta.0-x86_64.AppImage
+./ganache-1.1.0-beta.0-x86_64.AppImage
 ```
 
 This starts ganache and creates ten test accounts.
@@ -41,8 +41,7 @@ In a new command shell clone the repository and install dependency
 git clone *.git&&yarn install
 ```
 
-
-### Deploying the application contracts
+#### Deploying the application contracts
 
 * truffle configuration(truffle.js)
 
@@ -66,7 +65,13 @@ truffle compile&&truffle migrate
 
 This command runs the deployment scripts in the migrations folder. The contracts are mined into the blockchain
 
-### App Configuration
+
+#### Configuration
+
+```
+git clone https://coding.net/u/alien11/p/config ../config
+ln -s ../config .
+```
 
 - configuration
 
@@ -90,15 +95,19 @@ This command runs the deployment scripts in the migrations folder. The contracts
     }
 ```
 
-### Starting the application
+#### Deploying Auth as dependency
 
-The applcation may now be started. This can be served by any web server but the most convenient way to start the application is by running
+[auth](https://coding.net/u/alien11/p/auth)
+
+#### Starting the application
+
+The application may now be started.
 
 ```
 source ../config/.env&&source .env&&node app.js
 ```
 
-## Test
+#### Interface&Test
 
 import test/filechain.postman_collection.json into postman
 
