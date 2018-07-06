@@ -69,7 +69,7 @@ This command runs the deployment scripts in the migrations folder. The contracts
 #### Configuration
 
 ```
-git clone https://coding.net/u/alien11/p/config ../config
+git clone https://github.com/yrong/config ../config
 ln -s ../config .
 ```
 
