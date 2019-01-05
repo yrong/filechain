@@ -97,7 +97,7 @@ ln -s ../config .
 
 #### Deploying Auth as dependency
 
-[auth](https://coding.net/u/alien11/p/auth)
+[redis-jwt-token-auth](https://github.com/yrong/redis-jwt-token-auth)
 
 #### Starting the application
 
